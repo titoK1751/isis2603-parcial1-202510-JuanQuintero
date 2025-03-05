@@ -1,36 +1,44 @@
-# Ejemplo Parcial Práctico 1
+# Parcial Práctico 1 - Sección 7
 
 ## Instrucciones
 
 1. Haga un _fork_ de este repositorio
-2. Clone el repositorio bifurcado en su máquina virtual
+2. Clone SU repositorio en SU máquina
 3. Abra el proyecto en Visual Studio Code (o en el editor de su preferencia)
 4. Lea el enunciado completamente antes de iniciar
 
-## Punto 1 (40%). Persistencia
+## Punto 1 (20%). Persistencia
 
-Esta aplicación tiene el propósito de crear un sistema de información para una clínica.
+En este examen usted creara una app de historias clinicas que se usa en la Universidad de los Alpes. Su tarea es crear la funcionalidad básica del sistema, para esto debe crear las siguientes dos entidades:
 
-(15%) Cree la entidad _MedicoEntity_ en la carpeta correspondiente. Un médico tiene un nombre, un apellido, un registro médico y un id de tipo _Long_ que representa su llave primaria.
+- (5%) **Paciente**: id, nombre, correo y telefono.
+- (5%) **HistoriaClinica**: id, diagnostico(string), tratamiento(string), fechaDeCreación.
 
-(15%) Cree la entidad _EspecialidadEntity_ en la carpeta correspondiente. Una especialidad tiene un nombre, una descripción y un id de tipo _Long_ que representa su llave primaria.
+Adicionalmente debe garantizar que existan las siguientes relaciones:
 
-Tenga en cuenta que un médico puede tener varias especialiades y que una especialidad puede ser ejercida por varios médicos.
+- (5%) Cada paciente tiene 0 o más historias clinicas. Cada historia clinica solo tiene 1 paciente.
+- (5%) Cada paciente puede o no tener un acudiente. Este acudiente será otro paciente.
 
-(10%) Cree los repositorios para _MedicoEntity_ y _EspecialidadEntity_.
 
 ## Punto 2 (40%). Lógica
 
-(10%) Cree la clase correspondiente para la lógica de médico. Implemente unicamente el método _createMedicos_. Valide que el registro médico inicie solo con los caracteres "RM" (e.g., RM1745).
+Cree las clases necesarias para implementar los siguientes servicios:
 
-(10%) Cree la clase correspondiente para la lógica de especialidad. Implemente unicamente el método _createEspecialidad_. Valide que la descripción tenga como mínimo 10 caracteres.
+- (13%) Crear un paciente. El télefono del paciente debe ser de 11 dígitos y debe empezar por 311 o por 601.
+- (14%) Asociar un acudiente a un paciente dado el id de ambos. El paciente no puede tener ya un acudiente y el acudiente (al ser también un paciente) no puede tener acudiente. Adicionalmente, el acudiente debe tener ya por lo menos una historia clinica creada a su nombre.
+- (13%) Crear una historia clinica para un paciente dado su id. Si el paciente tiene acudiente, el diagnostico se debe modificar para que incluya el texto "HistoriaCompartida-" al inicio del valor recibido por párametro.
 
-(20%) Cree la clase correspondiente para la lógica de la asociación entre médico y especialidad. Implemente unicamente el método _addEspecialidad_. Este método recibe como parámetro el id del médico, el id de la especidad y le agrega la especialidad al médico. Valide que tanto el médico como la especialidad existan.
 
-## Punto 3 (20%). Prueba de lógica
+## Punto 3 (40%). Prueba de lógica
 
-(5%) Implemente las pruebas para el método _createMedicos_ del servicio de médico. Asegúrese de crear dos pruebas: una donde el médico se crea correctamente y otra donde se lanza una excepción de negocio por la violación de la regla de negocio.
+- Haga 2 pruebas para cada método creado en la lógica, una prueba debe enfocarse en el caso positivo y la otra en un caso de excepción. Cada prueba vale 5%.
 
-(5%) Implemente las pruebas para el método _createEspecialidad_ del servicio de especialidad. Asegúrese de crear dos pruebas: una donde la especialidad se crea correctamente y otra donde se lanza una excepción de negocio por la violación de la regla de negocio.
+## Punto 4 (Bono +0.5) API
 
-(10%) Implemente las pruebas para el método _addEspecialidad_ del servicio de la asociación. Asegúrese de crear tres pruebas: una donde la especialidad se agrega correctamente al médico; otra donde se lanza una excepción de negocio porque el médico no existe; y otra donde se lanza una excepción porque la especidad no existe.
+- Implemente el controlador que permite crear un paciente.
+
+# Entrega
+
+- Cree un release en SU repositorio.
+- Envíe el link de su release por bloqueneon.
+
