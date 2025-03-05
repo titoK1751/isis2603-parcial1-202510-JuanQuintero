@@ -31,7 +31,7 @@ Cree las clases necesarias para implementar los siguientes servicios:
 
 ## Punto 3 (40%). Prueba de lógica
 
-- Haga 2 pruebas para cada método creado en la lógica, una prueba debe enfocarse en el caso positivo y la otra en un caso de excepción. Cada prueba vale 5%.
+- Haga 2 pruebas para cada método creado en la lógica, una prueba debe enfocarse en el caso positivo y la otra en un caso de excepción. Cada prueba vale 6.66%.
 
 ## Punto 4 (Bono +0.5) API
 
