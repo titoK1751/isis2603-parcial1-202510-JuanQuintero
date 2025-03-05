@@ -72,7 +72,15 @@ public class HistoriaClinicaService {
     }
 
     @Transactional 
-    public void deleteHistoriaClinica(Long pacienteId, PacienteEntity pacienteEntity) throws EntityNotFoundException, IllegalOperationException{
+    public void deleteHistoriaClinica(Long pacienteId, HistoriaClinicaEntity historiaClinicaEntity) throws EntityNotFoundException, IllegalOperationException{
+        log.info("Inicia proceso de eliminacion de una historia clinica");
+
+        if (pacienteRepository.findById(pacienteId).isEmpty()) {
+            throw new EntityNotFoundException(ErrorMessage.PACIENTE_NO_EXISTENTE);
+        }
+
+        log.info("Termina proceso de eliminacion de una historia clinica");
+        historiaClinicaRepository.deleteById(historiaClinicaEntity.getId());
     }
     
     
